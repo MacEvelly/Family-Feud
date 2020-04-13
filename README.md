@@ -1,4 +1,5 @@
-# Family Fued using Node.js Express & Socket.io
+# Family Feud using Node.js Express & Socket.io
+
 This is an experiment to create a server with a live socket in order to set up a **game host instance** and an **audiance display instance** for a web app.  Once the host is selected, they will have control over the audiance board and points.  
 
 ## Install and start
@@ -16,7 +17,7 @@ Terminal should respond with:
 Listening on 8080
 ```
 
-## Play Family Fued
+## Play Family Feud
 
 * Open two browser windows at http://localhost:8080/
 * Click **Be the host** to assign that window to become the game **host controller**. All other open instances will become the **audiance window** window. 
