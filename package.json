@@ -1,5 +1,6 @@
 {
-  "name": "Family Feud",
+  "name": "Family-Feud",
+  "":"A basic Family Feud web app using  Node.js & Socket.io."
   "version": "0.0.0",
   "private": true,  
   "main": "server.js",
