@@ -1,0 +1,232 @@
+
+html {
+  height: 100%;
+  width: 100%;
+}
+body {
+  background: #a7cfdf;
+  background: -moz-linear-gradient(top, #a7cfdf 0%, #23538a 100%);
+  background: -webkit-linear-gradient(top, #a7cfdf 0%, #23538a 100%);
+  background: linear-gradient(to bottom, #a7cfdf 0%, #23538a 100%);
+  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#a7cfdf', endColorstr='#23538a', GradientType=0);
+  padding: 0;
+  margin: 0;
+  display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.gameBoard .cardHolder>div,
+.gameBoard .LBG {
+  background: #cedbe9;
+  background: -moz-linear-gradient(top, #cedbe9 0%, #aac5de 17%, #6199c7 50%, #3a84c3 51%, #419ad6 59%, #4bb8f0 71%, #3a8bc2 84%, #26558b 100%);
+  background: -webkit-linear-gradient(top, #cedbe9 0%, #aac5de 17%, #6199c7 50%, #3a84c3 51%, #419ad6 59%, #4bb8f0 71%, #3a8bc2 84%, #26558b 100%);
+  background: linear-gradient(to bottom, #cedbe9 0%, #aac5de 17%, #6199c7 50%, #3a84c3 51%, #419ad6 59%, #4bb8f0 71%, #3a8bc2 84%, #26558b 100%);
+  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#cedbe9', endColorstr='#26558b', GradientType=0);
+}
+.gameBoard .cardHolder>div:empty,
+.gameBoard .score,
+.gameBoard .button,
+.gameBoard .DBG {
+  background: #7db9e8;
+  background: -moz-linear-gradient(top, #7db9e8 0%, #207cca 49%, #2989d8 50%, #1e5799 100%);
+  background: -webkit-linear-gradient(top, #7db9e8 0%, #207cca 49%, #2989d8 50%, #1e5799 100%);
+  background: linear-gradient(to bottom, #7db9e8 0%, #207cca 49%, #2989d8 50%, #1e5799 100%);
+  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#7db9e8', endColorstr='#1e5799', GradientType=0);
+}
+
+.gameBoard {
+  width: 100%;
+  height: 95vh;
+  gap: 10px;
+  margin: auto;
+  display: grid;
+  grid-template-areas: 
+    ".        scoreM  .       "
+    "scoreT1  main    scoreT2 "
+    ".        host    .       ";
+  justify-self: center;
+  align-self: center;
+  box-sizing: border-box;
+  position: relative;
+  font-family: helvetica, sans-serif;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 1);
+  border: 5px solid #003c7b;
+  text-align: center;
+  border-radius: 50%;
+  background: url('../img/background.svg') #0C4779;
+  background-repeat: repeat;
+  background-position: center center;
+  -webkit-box-shadow: 0 1px 24px 1px rgba(0, 0, 0, 0.48);
+  -moz-box-shadow: 0 1px 24px 1px rgba(0, 0, 0, 0.48);
+  box-shadow: 0 1px 24px 1px rgba(0, 0, 0, 0.48);
+}
+.gameBoard .score {
+  text-align: center;
+  margin: auto;
+  font-size: 35px;
+  width: 75px;
+  padding: 15px 10px;
+  border: 2px solid white;
+  -webkit-box-shadow: inset 0 1px 24px 1px rgba(0, 0, 0, 0.48);
+  -moz-box-shadow: inset 0 1px 24px 1px rgba(0, 0, 0, 0.48);
+  box-shadow: inset 0 1px 24px 1px rgba(0, 0, 0, 0.48);
+}
+.gameBoard #boardScore {
+  grid-area: scoreM;
+}
+.gameBoard #team1 {
+  grid-area: scoreT1;
+}
+.gameBoard #team2 {
+  grid-area: scoreT2;
+}
+.gameBoard #middleBoard{
+  grid-area: main;
+  width: 70vw;
+  margin: auto;
+}
+.gameBoard #host{
+  grid-area: host;
+}
+.gameBoard .questionHolder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 10px;
+  margin: auto;
+  height: 90px;
+  text-align: center;
+  font-size: 25px;
+  color: #003c7b;
+  text-shadow: initial;
+  text-align: center;
+  border: 1px solid black;
+  background: #deeeff;
+  border: 1px solid black;
+  -webkit-box-shadow: inset 0 1px 24px 1px rgba(0, 0, 0, 0.48);
+  -moz-box-shadow: inset 0 1px 24px 1px rgba(0, 0, 0, 0.48);
+  box-shadow: inset 0 1px 24px 1px rgba(0, 0, 0, 0.48);
+}
+.gameBoard .questionHolder span {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: normal;
+}
+.gameBoard .colHolder {
+  background: black;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto auto auto auto;
+  gap: 5px;
+  padding: 5px;
+  grid-auto-flow: column;
+}
+.gameBoard .cardHolder {
+  position: relative;
+  vertical-align: top;
+  height: 50px;
+  background: black;
+  border: 4px solid white;
+  display: block;
+  -webkit-box-shadow: 0 1px 24px 1px rgba(0, 0, 0, 0.48);
+  -moz-box-shadow: 0 1px 24px 1px rgba(0, 0, 0, 0.48);
+  box-shadow: 0 1px 24px 1px rgba(0, 0, 0, 0.48);
+}
+.gameBoard .cardHolder:not(.empty){
+  cursor: pointer;
+}
+.gameBoard .cardHolder b {
+  position: absolute;
+  right: 0;
+  width: 45px;
+  text-align: center;
+  border-left: 2px solid #003c7b;
+}
+.gameBoard .cardHolder span {
+  margin: 10px;
+}
+.gameBoard .cardHolder>div {
+  top: -2px;
+  left: -2px;
+  margin: 0px;
+  padding: 0px;
+  position: absolute;
+  width: 100%;
+  line-height: 100%;
+  height: 100%;
+  border: 2px solid #003c7b;
+  line-height: 50px;
+}
+.gameBoard .cardHolder .back {
+  font-size: 25px;
+  text-align: left;
+  height: 50px;
+  line-height: 50px;
+}
+.gameBoard .cardHolder .back span {
+  text-align: left;
+  display: inline-block;
+  vertical-align: middle;
+  line-height: normal;
+}
+.gameBoard .cardHolder .front {
+  text-align: center;
+}
+.gameBoard .cardHolder .front span {
+  font-size: 30px;
+  position: absolute;
+  border-radius: 50%;
+  line-height: 35px;
+  height: 35px;
+  width: 45px;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  display: block;
+  margin: auto;
+  border: 2px solid #003c7b;
+}
+.gameBoard .btnHolder{
+  margin: auto;
+}
+.gameBoard .button{
+  cursor: pointer;
+  display:inline-block;
+  font-size: 20px;
+  margin:10px;
+  height:50px;
+  line-height:50px;
+  width:175px;
+  border:3px solid white;
+  -webkit-box-shadow: 0 1px 24px 1px rgba(0, 0, 0, 0.48);
+  -moz-box-shadow: 0 1px 24px 1px rgba(0, 0, 0, 0.48);
+  box-shadow: 0 1px 24px 1px rgba(0, 0, 0, 0.48);
+}
+.gameBoard .btnHolder .button#awardTeam1{
+  border-radius: 50px 0 0 50px;
+}
+.gameBoard .btnHolder .button#awardTeam2{
+  border-radius: 0 50px 50px 0;
+}
+.gameBoard:not(.showHost) .btnHolder .button:not(#hostBTN),
+.gameBoard:not(.showHost) .answer{
+  display: none !important;
+}
+.showHost .cardHolder .front span{
+  font-size: 20px;
+}
+.showHost .cardHolder .front span:nth-child(1) {
+  margin: auto 5px;
+}
+.showHost .cardHolder .front span:nth-child(2) {
+  width: 100%;
+  border: none;
+  margin: auto 5px;
+  box-sizing: border-box;
+  padding-left: 60px; 
+  text-align: left;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 1), -1px -1px 3px rgba(0, 0, 0, 1), 0 0 5px rgba(0, 0, 0, 1);
+}
