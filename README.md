@@ -9,3 +9,19 @@ cd Family-Feud
 npm install
 npm start
 ```
+
+Terminal should respond with:
+
+```bash
+Listening on 8080
+```
+
+## Play Family Fued
+
+* Open two browser windows at http://localhost:8080/
+* Click **Be the host** to assign that window to become the game **host controller**. All other open instances will become the **audiance window** window. 
+* As the **host** you can:
+   * click to reveal answers
+   * assign points
+   * go to new questions
+
