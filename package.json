@@ -1,15 +1,15 @@
 {
-  "name": "Family-Feud",
+  "name": "family-feud",
   "description": "A basic Family Feud web app using Node.js & Socket.io.",
   "version": "0.0.0",
-  "private": true,  
+  "private": true,
   "main": "server.js",
   "scripts": {
     "start": "nodemon server.js"
   },
   "dependencies": {
-    "socket.io": "~1.4.6",
-    "express": "~4.13.4"
+    "express": "^4.17.1",
+    "socket.io": "~1.4.6"
   },
   "devDependencies": {
     "nodemon": "^2.0.3"
