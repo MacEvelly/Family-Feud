@@ -26,3 +26,12 @@ Listening on 8080
    * assign points
    * go to new questions
 
+### Default instance:
+![Default instance](public/img/Default.jpg)
+
+### Host instance:
+![Host instance](public/img/Host.jpg)
+
+### Audience instance:
+![Host instance](public/img/Audience.jpg)
+
