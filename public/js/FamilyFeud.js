@@ -1,3 +1,5 @@
+console.clear()
+
 var app = {
     version: 1,
     role: "player",
@@ -50,7 +52,6 @@ var app = {
         return array;
     },
     jsonLoaded: (data) => {
-        console.clear();
         app.allData = data;
         app.questions = Object.keys(data);
         app.makeQuestion(app.currentQ);
@@ -229,7 +230,7 @@ var app = {
 
         $.getJSON(app.jsonFile, app.jsonLoaded);
 
-        app.board.find('#hostBTN').on('click', app.makeHost);
+        app.board.find('#hostBTN'    ).on('click', app.makeHost);
         app.board.find('#awardTeam1' ).on('click', { trigger: 'awardTeam1' }, app.talkSocket);
         app.board.find('#awardTeam2' ).on('click', { trigger: 'awardTeam2' }, app.talkSocket);
         app.board.find('#newQuestion').on('click', { trigger: 'newQuestion'}, app.talkSocket);

@@ -1,9 +1,16 @@
 {
   "name": "chat",
   "version": "0.0.0",
-  "private": true,
+  "private": true,  
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
   "dependencies": {
-    "socket.io":"~1.4.6",
+    "socket.io": "~1.4.6",
     "express": "~4.13.4"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.3"
   }
 }
