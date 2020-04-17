@@ -88,6 +88,9 @@ body {
 }
 .gameBoard #host{
   grid-area: host;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .gameBoard .questionHolder {
   display: flex;
@@ -229,4 +232,31 @@ body {
   padding-left: 60px; 
   text-align: left;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 1), -1px -1px 3px rgba(0, 0, 0, 1), 0 0 5px rgba(0, 0, 0, 1);
+}
+
+.wrongX:not(.button){
+  grid-area: host;
+  grid-area: main;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  display: none;
+}
+.wrongX:not(.button) img{
+  height: 100%;
+  width: 25%;
+  padding: 5px;
+  box-sizing: border-box;
+  display: inline-block;
+}
+.showHost #wrong img{
+  height: 100%;
+  width: 100%;
+  padding: 5px;
+  box-sizing: border-box;
+  display: inline-block;
+}
+.showHost #wrong {
+width: 75px;
 }

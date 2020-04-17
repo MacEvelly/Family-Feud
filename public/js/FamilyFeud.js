@@ -6,6 +6,7 @@ var app = {
     socket: io.connect(),
     jsonFile: "../public/data/FamilyFeud_Questions.json",
     currentQ: 0,
+    wrong:0,
     board: $(`<div class='gameBoard'>
 
                 <!--- Scores --->
@@ -26,12 +27,21 @@ var app = {
                     </div>
 
                 </div>
+                <!--- Wrong --->
+                <div class='wrongX wrongBoard'>
+                    <img alt="not on board" src="/public/img/Wrong.svg"/>
+                    <img alt="not on board" src="/public/img/Wrong.svg"/>
+                    <img alt="not on board" src="/public/img/Wrong.svg"/>
+                </div>
 
                 <!--- Buttons --->
                 <div class='btnHolder hide' id="host">
                     <div id='hostBTN'     class='button'>Be the host</div>
                     <div id='awardTeam1'  class='button' data-team='1'>Award Team 1</div>
                     <div id='newQuestion' class='button'>New Question</div>
+                    <div id="wrong"       class='button wrongX'>
+                        <img alt="not on board" src="/public/img/Wrong.svg"/>
+                    </div>
                     <div id='awardTeam2'  class='button' data-team='2' >Award Team 2</div>
                 </div>
 
@@ -75,6 +85,11 @@ var app = {
         boardScore.html(0);
         question.html(qText.replace(/&x22;/gi, '"'));
         holderMain.empty();
+
+        app.wrong = 0;
+        var wrong = app.board.find(".wrongBoard")
+        $(wrong).find("img").hide()
+        $(wrong).hide()
 
         qNum = 10
 
@@ -199,6 +214,17 @@ var app = {
         $(card).data("flipped", flipped);
         app.getBoardScore()
     },
+    wrongAnswer:()=>{
+        app.wrong++
+        console.log("wrong: "+ app.wrong )
+        var wrong = app.board.find(".wrongBoard")
+        $(wrong).find("img:nth-child("+app.wrong+")").show()
+        $(wrong).show()
+        setTimeout(() => { 
+            $(wrong).hide(); 
+        }, 1000); 
+
+    },
 
     // Socket Test
     talkSocket: (e) => {
@@ -222,6 +248,9 @@ var app = {
             case "hostAssigned":
                 app.board.find('#hostBTN').remove();
                 break;
+            case "wrong":
+                app.wrongAnswer()
+                break;
         }
     },
     
@@ -234,6 +263,7 @@ var app = {
         app.board.find('#awardTeam1' ).on('click', { trigger: 'awardTeam1' }, app.talkSocket);
         app.board.find('#awardTeam2' ).on('click', { trigger: 'awardTeam2' }, app.talkSocket);
         app.board.find('#newQuestion').on('click', { trigger: 'newQuestion'}, app.talkSocket);
+        app.board.find('#wrong'      ).on('click', { trigger: 'wrong'      }, app.talkSocket);
 
         app.socket.on('listening', app.listenSocket)
     }
