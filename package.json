@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "express": "^4.17.1",
-    "socket.io": "~1.4.6"
+    "socket.io": "~4.5.3"
   },
   "devDependencies": {
     "nodemon": "^2.0.3"
